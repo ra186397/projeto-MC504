@@ -16,30 +16,46 @@ sem_t sem_esvaziar1;
 sem_t sem_esvaziar2;
 sem_t sem_emboscando;
 
-void imprimir_salas(int id_aluno, int posicao_diretor, int salas[], int sala, int entrada) {
+void imprimir_salas(int id_aluno, int sala, int entrada) {
 
-    if (posicao_diretor == 3) {
-        printf("           D                        \n");
-    } else if (posicao_diretor == 4) {
-        printf("                         D           \n");
+    if (diretor == 3) {
+        printf("           D\n");
+    } else if (diretor == 4) {
+        printf("                                 D\n");
     }
 
     printf("        Sala 1                Sala 2\n");
     printf("+---------------------+---------------------+\n");
 
     // Desenhar contadores de alunos da Sala 1
-    printf("|       Alunos: %2d %c   ", salas[0], (salas[0] >= N_FESTA ? "P" : " "));
+
+    char festa1;
+    char festa2;
+
+    if (salas[0] >= N_FESTA && diretor != 1) {
+        festa1 = 'P';
+    } else {
+        festa1 = ' ';
+    }
+
+    if (salas[1] >= N_FESTA && diretor != 2) {
+        festa2 = 'P';
+    } else {
+        festa2 = ' ';
+    }
+
+    printf("|      Alunos: %2d %c   ", salas[0], festa1);
 
     // Desenhar contadores de alunos da Sala 2
-    printf("|       Alunos: %2d %c   ", salas[1], (salas[1] >= N_FESTA ? "P" : " "));
+    printf("|      Alunos: %2d %c   ", salas[1], festa2);
     printf("|\n");
 
     // Desenhar linha inferior com símbolo do diretor
     printf("|         ");
-    if (posicao_diretor == 1) {
+    if (diretor == 1) {
         printf(" D          |                     |\n");
-    } else if (posicao_diretor == 2) {
-        printf("                |          D          |\n");
+    } else if (diretor == 2) {
+        printf("            |          D          |\n");
     } else {
         printf("            |                     |\n");
     }
@@ -87,7 +103,6 @@ void* f_estudante(void* v) {
     srand(ra);
     sem_wait(&sem_mutex);
     int aleatorio = rand();
-    printf("%d\n", aleatorio);
     if (aleatorio % 2 == 0) { // decide que sala o estudante vai checar aleatoriamente. Sala1 é 0, Sala2 é 1.
         numSala = 0;
     }
@@ -97,7 +112,6 @@ void* f_estudante(void* v) {
 
     if (diretor == 1 + numSala) { // Diretor na sala escolhida
 
-        printf("O estudante %d tentou entrar na sala %d mas foi barrado pelo diretor.\n", ra, numSala + 1);
         sem_post(&sem_mutex);
         sem_wait(&sem_diretorPresente);
         sem_post(&sem_diretorPresente);
@@ -105,9 +119,8 @@ void* f_estudante(void* v) {
     }
 
     salas[numSala] += 1;
-    printf("O estudante %d entrou na sala %d. O total aumentou para %d.\n", ra, numSala + 1, salas[numSala]);
     
-    imprimir_salas(ra, diretor, salas, numSala, 0);
+    imprimir_salas(ra, numSala, 1);
 
     if (salas[numSala] == N_FESTA && diretor == 3 + numSala) { // Diretor entra para parar a festa.
         sem_post(&sem_emboscando);
@@ -115,16 +128,13 @@ void* f_estudante(void* v) {
     else {
         sem_post(&sem_mutex);
     }
-
-    if (salas[numSala] == N_FESTA) {
-        printf("Tem bastante gente na sala %d! Hora da festa! Oba oba!\n", numSala + 1);
-    }
     
     sem_wait(&sem_mutex);
 
     salas[numSala] -= 1;
-    printf("O estudante %d saiu da sala %d. O total caiu para %d.\n", ra, numSala + 1, salas[numSala]);
 
+    imprimir_salas(ra, numSala, 0);
+    
     if (salas[numSala] == 0 && diretor == 3 + numSala) { // Diretor entra para vasculhar.
         sem_post(&sem_emboscando);
     }
@@ -138,7 +148,6 @@ void* f_estudante(void* v) {
         sem_post(&sem_mutex);
     }
 
-    imprimir_salas(ra, diretor, salas, numSala, 0);
 }
 
 void* f_diretor(void *v) {
@@ -152,8 +161,6 @@ void* f_diretor(void *v) {
             numSala = 1;
         }
 
-        printf("O diretor decidiu emboscar a sala %d.\n", numSala + 1);
-
         if (salas[numSala] > 0 && salas[numSala] < N_FESTA)
         {
             diretor = 3 + numSala;
@@ -163,10 +170,8 @@ void* f_diretor(void *v) {
 
         if (salas[numSala] >= N_FESTA) {
             diretor = 1 + numSala;
-            printf("'Nada de festa na sala %d. Saiam todos agora!'\n", numSala + 1);
             sem_wait(&sem_diretorPresente); // Bloqueia novos estudantes de entrar.
             sem_post(&sem_mutex);           // Passa a vez para os estudantes.
-            sem_post(&sem_diretorPresente); // Permite estudantes entrarem.
 
             if (diretor == 1) {
                 sem_wait(&sem_esvaziar1);       // Espera a sala esvaziar.
@@ -174,9 +179,8 @@ void* f_diretor(void *v) {
             else {
                 sem_wait(&sem_esvaziar2);
             }
-        }
-        else {
-            printf("'O que que tem de bom aqui na sala %d, hein?\n", numSala + 1);
+
+            sem_post(&sem_diretorPresente); // Permite estudantes entrarem.
         }
 
         diretor = 0;
