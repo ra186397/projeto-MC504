@@ -24,7 +24,7 @@ Para facilitar a interação e compreensão do que está acontecendo, a visualiz
 
 ![Exemplo 2.](imgs/exemplo2.png)
 
-> Neste exeplo a sala 1 está vazia, a sala 2 está com 3 alunos e o aluno reconhecido pelo RA 96 está saindo dela. Além disso, o Diretor está esperando para entrar na sala 2.
+> Neste exeplo a sala 1 está vazia, a sala 2 está com 3 alunos e o aluno reconhecido pelo RA 92 está saindo dela. Além disso, o Diretor está esperando para entrar na sala 2.
 
 ![Exemplo 3.](imgs/exemplo3.png)
 
