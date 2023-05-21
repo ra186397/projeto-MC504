@@ -2,6 +2,8 @@
 
 ## Tema: Room Party Problem
 
+---
+
 O problema proposto para solução neste projeto, chamado Room Party Problema. Ele baseia na existência de uma sala na qual alunos podem se reunir para começar uma festa, entretanto o Diretor do colégio cuida para controlar se existe alguma festa ocorrendo nesta sala, podendo finalizar a festa e retirar todos os alunos de dentro da sala.
 
 Os alunos e o diretor devem seguir algumas regras em especifíco:
