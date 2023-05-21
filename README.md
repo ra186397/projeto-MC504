@@ -22,7 +22,19 @@ Como forma de complicar um pouco mais esse problema o grupo resolveu por adicion
 
 Para facilitar a interação e comprrensão do que está acontecendo a visuliazação das atualizações de cada movimento aluno-diretor foi realizada por meio de desenhos em ASCII impresso constantemente pelo terminal.
 
+![Exemplo 2.](imgs/exemplo2.png)
 
+> Neste exeplo a sala 1 está vazia, a sala 2 está com 3 alunos e o aluno reconhecido pelo RA 96 está saindo dela. Além disso, o Diretor está esperando para entrar na sala 2.
+
+![Exemplo 3.](imgs/exemplo3.png)
+
+> Aqui a sala 1 ainda está vazia porém a sala 2 está com 4 alunos e o aluno reconhecido pelo RA 91 está saindo. Note que o diretor não está dentro de nenhuma sala e não está esperando para entrar.
+
+![Exemplo 4.](imgs/exemplo4.png)
+
+> Aqui a sala 1 está com 13, o Diretor está dentro dela esvaziando, por isso o aluno RA 60 está saindo. Enquanto isso, a sala 2 está com 16 alunos dentro dela e uma festa está acontecendo (simbolizado pela letra P).
+
+---
 
 ## Integrantes
 
@@ -30,6 +42,4 @@ Para facilitar a interação e comprrensão do que está acontecendo a visuliaza
 - **Pedro Henrique Suguino** -> 187026
 - **Giovani Lorenzo Bianchini** -> 186397
 
-
-Modificamos levemente o problema para existirem duas salas onde estudantes se reúnem ao invés de uma só.
 
