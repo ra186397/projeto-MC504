@@ -16,4 +16,12 @@ Os alunos e o diretor devem seguir algumas regras em especifíco:
 
 Como forma de complicar um pouco mais esse problema o grupo resolveu por adicionar mais de uma sala. Desta forma o diretor precisa escolher qual das duas salas pretende vasculhar enquanto os alunos escolhem em qual das duas salas querem entrar.
 
+---
+
+## Integrantes
+
+- **Gabriel Vieira Sousa** -> 182891
+- **Pedro Henrique Suguino** -> 187026
+- **Giovani Lorenzo Bianchini** -> 186397
+
 
