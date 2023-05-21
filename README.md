@@ -22,7 +22,7 @@ Como forma de complicar um pouco mais esse problema o grupo resolveu por adicion
 
 Para facilitar a interação e comprrensão do que está acontecendo a visuliazação das atualizações de cada movimento aluno-diretor foi realizada por meio de desenhos em ASCII impresso constantemente pelo terminal.
 
-
+---
 
 ## Integrantes
 
@@ -30,6 +30,4 @@ Para facilitar a interação e comprrensão do que está acontecendo a visuliaza
 - **Pedro Henrique Suguino** -> 187026
 - **Giovani Lorenzo Bianchini** -> 186397
 
-
-Modificamos levemente o problema para existirem duas salas onde estudantes se reúnem ao invés de uma só.
 
