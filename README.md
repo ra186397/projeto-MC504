@@ -18,6 +18,12 @@ Como forma de complicar um pouco mais esse problema o grupo resolveu por adicion
 
 ---
 
+## Representação visual
+
+Para facilitar a interação e comprrensão do que está acontecendo a visuliazação das atualizações de cada movimento aluno-diretor foi realizada por meio de desenhos em ASCII impresso constantemente pelo terminal.
+
+
+
 ## Integrantes
 
 - **Gabriel Vieira Sousa** -> 182891
