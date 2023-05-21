@@ -212,7 +212,7 @@ int main() {
 
     for (i = 0; i < N_ESTUDANTES; i++)
     {
-        pthread_join(thr_estudantes[i], NULL); // não fazer bosta antes de outra thread terminar
+        pthread_join(thr_estudantes[i], NULL);
     }
 
     return 0;
