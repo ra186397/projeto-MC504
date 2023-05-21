@@ -22,16 +22,17 @@ Como forma de complicar um pouco mais esse problema o grupo resolveu por adicion
 
 Para facilitar a interação e comprrensão do que está acontecendo a visuliazação das atualizações de cada movimento aluno-diretor foi realizada por meio de desenhos em ASCII impresso constantemente pelo terminal.
 
-![Exemplo 1.](imgs/exemplo1.png)
-
-> Neste exemplo temos a Sala 1 com 36 alunos dentro dela, a Sala 2 com 33 alunos enquanto o Aluno reconhecido pelo RA 36 está saíndo da Sala 1
-
-Note que o Diretor não aparece. Isso acontece porque ele não está executando nenhuma ação(esperando para entrar em alguma sala, dentro de alguma sala e etc.)
-
 ![Exemplo 2.](imgs/exemplo2.png)
 
-> Desta vez temos o aluno reconhecido pelo RA 15 saíndo da sala 2 enquanto isso o diretor está dentro da Sala 1.
+> Neste exeplo a sala 1 está vazia, a sala 2 está com 3 alunos e o aluno reconhecido pelo RA 96 está saindo dela. Além disso, o Diretor está esperando para entrar na sala 2.
 
+![Exemplo 3.](imgs/exemplo3.png)
+
+> Aqui a sala 1 ainda está vazia porém a sala 2 está com 4 alunos e o aluno reconhecido pelo RA 91 está saindo. Note que o diretor não está dentro de nenhuma sala e não está esperando para entrar.
+
+![Exemplo 4.](imgs/exemplo4.png)
+
+> Aqui a sala 1 está com 13, o Diretor está dentro dela esvaziando, por isso o aluno RA 60 está saindo. Enquanto isso, a sala 2 está com 16 alunos dentro dela e uma festa está acontecendo (simbolizado pela letra P).
 
 ---
 
